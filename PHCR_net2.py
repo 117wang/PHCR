@@ -14,7 +14,7 @@ batch_size = 256 # 以像元为单位
 learning_rate = 0.8 # defualt=1
 rd = 20 # 权重衰减轮次
 de = 0.8
-band = 5
+band = 3
 nei = 5
 bandsin = nei*nei*band 
 sub_size = 1 # pixel-based
@@ -23,7 +23,7 @@ sub_size = 1 # pixel-based
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 clear = gdal.Open('./target_cloudy_G{}.tif'.format{G}) 
-known = gdal.Open('./Landsat_auxiliary_25n.tif')
+known = gdal.Open('./Landsat_partialbands_25n.tif')
 k_G = gdal.Open('./Repre{}_25n.tif'.format(G))
 mask = gdal.Open('./mask.tif')
 clear = clear.ReadAsArray()
